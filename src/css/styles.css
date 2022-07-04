@@ -1,0 +1,435 @@
+/* ======================================  header start  ==================================  */
+.header.statistics {
+  box-shadow: 0px 4px 20px rgb(0 0 0 / 5%);
+}
+
+.header .menu-icon {
+  transition: 0.3s;
+}
+
+.header .menu-icon:hover {
+  opacity: 0.7;
+}
+
+.header .menu-icon svg {
+  width: 48px;
+  height: 48px;
+  fill: #d70a80;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.header .toggle-mode {
+  column-gap: 20px;
+}
+
+.header .toggle-mode .mode-text {
+  font-weight: bold;
+  font-size: 18px;
+  color: #a8a8a8;
+}
+
+.header .toggle-mode .mode-text.train.active {
+  color: #d70a80;
+}
+
+.header .toggle-mode .mode-text.play.active {
+  color: #2196f3;
+}
+
+.header .toggle-mode .switch {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 34px;
+}
+
+.header .toggle-mode .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.header .toggle-mode .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 34px;
+  background-color: #d70a80;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.header .toggle-mode .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  border-radius: 50%;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.header .toggle-mode input:checked + .slider {
+  background-color: #2196f3;
+}
+
+.header .toggle-mode input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+.header .toggle-mode input:checked + .slider:before {
+  -webkit-transform: translateX(46px);
+  -ms-transform: translateX(46px);
+  transform: translateX(46px);
+}
+
+/* ======================================  header end  ==================================  */
+
+/* ======================================  sidebar start  ==================================  */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30vw;
+  height: 100vh;
+  z-index: 1;
+  transition: 0.5s;
+}
+
+@media (max-width: 1078px) {
+  .sidebar {
+    width: 45vw;
+  }
+}
+
+@media (max-width: 450px) {
+  .sidebar {
+    width: 75vw;
+  }
+}
+
+.sidebar-close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+.sidebar-close svg {
+  width: 48px;
+  height: 48px;
+  fill: #fff;
+  cursor: pointer;
+}
+
+.sidebar nav {
+  width: 100%;
+  height: 100%;
+  background-color: #ffbc29;
+  display: flex;
+  justify-content: center;
+  padding-top: 72px;
+  overflow-y: auto;
+}
+
+.sidebar.hidden {
+  left: -30vw;
+}
+
+@media (max-width: 1078px) {
+  .sidebar.hidden {
+    left: -45vw;
+  }
+}
+
+@media (max-width: 450px) {
+  .sidebar.hidden {
+    left: -75vw;
+  }
+}
+
+.sidebar .categories {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.sidebar .category-item {
+  font-weight: bold;
+  font-size: 34px;
+  line-height: 45px;
+  color: white;
+  margin-top: 16px;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .sidebar .category-item {
+    font-size: 24px;
+  }
+}
+
+.sidebar .category-item.active {
+  color: #333;
+}
+
+.sidebar .category-item a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.sidebar .backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(61, 61, 61, 0.21);
+  z-index: -1;
+  cursor: pointer;
+}
+
+.sidebar .backdrop.hidden {
+  display: none;
+}
+
+/* ======================================  sidebar end  ==================================  */
+
+/* ======================================  main-content start  ==================================  */
+
+.main-content .title {
+  font-size: 49px;
+  line-height: 60px;
+  color: #3d3d3d;
+  font-weight: bold;
+}
+
+@media (max-width: 840px) {
+  .main-content .title {
+    font-size: 34px;
+  }
+}
+
+/* ======================================  main-content end  ==================================  */
+
+/* ======================================  category-cards start  ==================================  */
+
+.category-cards {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.category-cards .row {
+  row-gap: 32px;
+}
+
+.category-card {
+  border-radius: 19px;
+  box-shadow: 1px 3px 4px rgb(0 0 0 / 5%);
+  cursor: pointer;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.category-card:hover {
+  box-shadow: 0px 4px 16px rgb(0 0 0 / 25%);
+}
+
+.category-card a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+.category-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.category-card .title {
+  font-size: 20px;
+  line-height: 1em;
+}
+
+.category-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.category-card__footer .mode {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: #d70a80;
+}
+
+.category-card__footer .mode.play {
+  background-color: #2196f3;
+}
+
+/* ======================================  category-card end  ==================================  */
+
+/* ======================================  cards-list start  ==================================  */
+
+.cards-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.cards-list .row {
+  row-gap: 32px;
+}
+
+.cards-list__card {
+  border-radius: 19px;
+  box-shadow: 1px 3px 4px rgb(0 0 0 / 5%);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.6s linear;
+}
+
+.cards-list__card:hover {
+  box-shadow: 0px 4px 16px rgb(0 0 0 / 25%);
+}
+
+.cards-list__card[data-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cards-list__card.revert {
+  transform: rotateY(180deg);
+  box-shadow: 0px 4px 16px rgb(0 0 0 / 25%);
+  pointer-events: none;
+}
+
+.cards-list__card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.cards-list__card .title {
+  font-size: 20px;
+  line-height: 1em;
+}
+
+.cards-list__card .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cards-list__card .footer {
+  text-align: right;
+}
+
+.cards-list__card .reverse {
+  width: 24px;
+  height: 24px;
+  fill: #ccc;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cards-list__card .reverse:hover {
+  transform: scale(1.2);
+}
+
+.cards-list__card .footer .mode {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: #d70a80;
+}
+
+.cards-list__card .footer .mode.play {
+  background-color: #2196f3;
+}
+
+/* ======================================  cards-list end  ==================================  */
+
+/* ======================================  game start  ==================================  */
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 16px;
+}
+
+.game-button {
+  width: 165px;
+  height: 48px;
+  background: #ff6024;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  transition: all 0.3s ease;
+  border: none !important;
+  outline: none !important;
+}
+
+.game-button:hover {
+  transform: translateY(-2px);
+}
+
+.bottom .stars {
+  flex-basis: 200px;
+}
+
+/* ======================================  game end  ==================================  */
+
+/* ======================================  result start  ==================================  */
+
+.result {
+  text-align: center;
+}
+
+.result img {
+  width: auto;
+  max-width: 90%;
+}
+
+/* ======================================  result end  ==================================  */
+
+/* ======================================  statistics start  ==================================  */
+
+.btns .button {
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  min-width: 189px;
+  min-height: 51px;
+  padding: 6px 10px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #05112e;
+  background-color: #ffffff;
+  box-shadow: 3px 3px 10px 0 #062e8f4f;
+  transition: 0.3s;
+}
+
+.btns .button:hover {
+  box-shadow: 3px 3px 20px 0 #062e8f4f;
+}
+
+.btns .button.reset {
+  background-color: #d70a80;
+  color: #fff;
+}
+
+.table th {
+  cursor: pointer;
+}
+/* ======================================  statistics end  ==================================  */
