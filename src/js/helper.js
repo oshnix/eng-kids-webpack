@@ -63,12 +63,11 @@ export const changeMode = (isPlayMode, cards, isCardsPage) => {
 
 export const fillCards = (data, parent) => {
   data.forEach((card) => {
-    const imgUrl = require("../" + card.image);
     const li = document.createElement("li");
     const cardElement = `
         <div class="cards-list__card">
           <div class="top mt-3 px-3">
-              <img src=${imgUrl} alt=${card.word} />
+              <img src=${card.filename} alt=${card.word} />
               <h3 class="title mb-0">${card.word}</h3>
               <svg xmlns="http://www.w3.org/2000/svg" class="reverse" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
@@ -83,24 +82,5 @@ export const fillCards = (data, parent) => {
     li.classList.add("col-lg-3", "col-md-4", "col-sm-6", "col-12");
     li.innerHTML = cardElement;
     parent.append(li);
-
-    // li.querySelector(".cards-list__card").addEventListener("click", () => {
-    //   if (!JSON.parse(localStorage.getItem("isPlayMode"))) {
-    //     const stats = JSON.parse(localStorage.getItem("statistics"));
-    //     playAudio(require("../" + card.audioSrc));
-
-    //     const targetWord = stats.find((stat) => stat.word === card.word);
-    //     targetWord.clicksTraining++;
-    //     localStorage.setItem("statistics", JSON.stringify(stats));
-    //   }
-    // });
-
-    // li.querySelector(".reverse").addEventListener("click", (e) => {
-    //   e.stopPropagation();
-    //   reverseCard(true, li, card);
-    // });
-    // li.addEventListener("mouseleave", () => {
-    //   reverseCard(false, li, card);
-    // });
   });
 };

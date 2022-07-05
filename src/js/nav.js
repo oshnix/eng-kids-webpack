@@ -1,15 +1,15 @@
-import cards from "./cards.js";
+import { categories } from "./cards.js";
 import {toggleSidebar} from "./helper.js";
 import {menuBtn, sidebar} from "./elements.js";
 
 export const initNav = (isStatisticsPage) => {
-  Object.keys(cards).forEach((title) => {
-    const actieClass =
+  categories.forEach(({ name: title }) => {
+    const activeClass =
       new URLSearchParams(window.location.search).get("title") === title
         ? "active"
         : "";
     const sideBarItem = `
-    <li class="category-item ${actieClass}"">
+    <li class="category-item ${activeClass}"">
       <a href="./category.html?title=${title}">
         ${title}
       </a>

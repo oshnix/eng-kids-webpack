@@ -4,10 +4,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
   entry: {
-    main: "./src/js/main.js",
+    main: path.resolve('src', 'js', 'main'),
     category: "./src/js/category.js",
     statistics: "./src/js/statistics.js",
-    repeat: "./src/js/repeat.js",
+    // repeat: "./src/js/repeat.js",
   },
   output: {
     filename: "[name].js",
@@ -16,7 +16,7 @@ module.exports = {
   },
   devtool: "inline-source-map",
   devServer: {
-    static: "./dist",
+    static: path.resolve('dist'),
   },
   module: {
     rules: [
@@ -27,41 +27,33 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|gif|mp3)$/i,
         type: "asset/resource",
+        /*options: {
+          name: '[name].[ext]',
+          outputPath: 'images'
+        }*/
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      inject: false,
-      templateParameters: {
-        scriptName: "main",
-      },
+      chunks: ['main'],
       filename: "index.html",
       template: "src/index.html",
     }),
-    new HtmlWebpackPlugin({
-      inject: false,
-      templateParameters: {
-        scriptName: "category",
-      },
+    /*new HtmlWebpackPlugin({
+      chunks: ['category'],
       filename: "category.html",
       template: "src/category.html",
     }),
     new HtmlWebpackPlugin({
-      inject: false,
-      templateParameters: {
-        scriptName: "statistics",
-      },
+      chunks: ['statistics'],
       filename: "statistics.html",
       template: "src/statistics.html",
     }),
     new HtmlWebpackPlugin({
-      inject: false,
-      templateParameters: {
-        scriptName: "repeat",
-      },
+      chunks: ['repeat'],
       filename: "repeat.html",
       template: "src/repeat.html",
-    }),
+    }),*/
   ],
 };

@@ -1,6 +1,6 @@
 import "../css/normalize.css";
 import "../css/styles.css";
-import cards from "./cards.js";
+import { categories } from "./cards.js";
 import {changeMode} from "./helper.js";
 import {toggleCheckbox, categoryCards} from "./elements.js";
 import {initNav} from "./nav.js";
@@ -9,8 +9,8 @@ if (!localStorage.getItem("statistics")) {
   let index = 1;
   const stats = [];
 
-  for (const category in cards) {
-    for (const card of cards[category]) {
+  for (const category in categories) {
+    for (const card of categories[category]) {
       const data = {
         id: index++,
         category: category,
@@ -34,15 +34,15 @@ setTimeout(() => {
   initNav();
 }, 0);
 
-Object.keys(cards).forEach((card) => {
+categories.forEach((category) => {
   const li = document.createElement("li");
   const cardElement = `
     <div class="category-card">
-        <a href="./category.html?title=${card}">
-          <img src="${require("../img/" + card + ".jpg")}" alt="${card}" />
-          <h3 class="title mt-3 px-3 mb-0">${card}</h3>
+        <a href="./category.html?title=${category.name}">
+          <img src=${category.filename} alt="${category.name}" />
+          <h3 class="title mt-3 px-3 mb-0">${category.name}</h3>
           <div class="category-card__footer p-3">
-              <span class="cards_count">${cards[card].length} cards</span>
+              <span class="cards_count">${category.cards.length} cards</span>
               <span class="mode"></span>
           </div>
         </a>
